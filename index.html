@@ -24,7 +24,7 @@
 
                 </div>
 
-                {[if (!!buttons) {]}
+                {[if (buttons !== null) {]}
 
                     <div class="card-buttons">
 
@@ -54,6 +54,14 @@
 
                     </div>
 
+                {[ } else  {]}
+
+                    <a class="card-button">
+
+                        <span class="card-button_in">Заново</span>
+
+                    </a>
+
                 {[ } ]}
 
             </div>
@@ -61,6 +69,7 @@
         </script>
 
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
         <script src="js/underscore.min.js"></script>
         <script src="js/script.js"></script>
     </body>

@@ -151,17 +151,27 @@ jQuery.fn.questionsTree = function(steps) {
                var $this = $(this),
                    data = $this.data();
 
+               $buttons
+                   .parent(".card-button_out")
+                   .removeClass("selected");
+
                $this
                    .parent(".card-button_out")
                    .addClass("selected");
 
-               startCard(data.id);
+               $this
+                   .parents(".card")
+                   .nextAll()
+                   .remove();
 
-               $buttons.unbind("click.answer");
+               startCard(data.id);
 
             });
 
         $card.appendTo($self);
+
+        $(window).scrollTo($card[0], 1000);
+
     }
 
     function endCard() {
