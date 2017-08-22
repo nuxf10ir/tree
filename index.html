@@ -8,6 +8,11 @@
     <body>
 
         <div class="wrapper">
+
+            <h1 class="cards-tree_header">
+                Деньги государства: кто может получить финансирование
+            </h1>
+
             <div id="cards-tree" class="cards-tree">
             </div>
         </div>
@@ -24,9 +29,9 @@
 
                 </div>
 
-                {[if (buttons !== null) {]}
+                <div class="card-buttons">
 
-                    <div class="card-buttons">
+                    {[if (buttons !== null) {]}
 
                         <div class="card-button_out">
 
@@ -52,17 +57,23 @@
 
                         </div>
 
-                    </div>
+                    {[ } else  {]}
 
-                {[ } else  {]}
+                        <div class="card-button_out">
 
-                    <a class="card-button">
+                            <a class="card-button"
+                               data-method="reset">
 
-                        <span class="card-button_in">Заново</span>
+                                <span class="card-button_in">Заново</span>
 
-                    </a>
+                            </a>
 
-                {[ } ]}
+                        </div>
+
+                    {[ } ]}
+
+                </div>
+
 
             </div>
 

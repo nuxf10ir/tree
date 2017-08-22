@@ -52,7 +52,7 @@ var treeParams = {
             type: "question",
             buttons: {
                 yes: {
-                    id: 13,
+                    id: 9,
                     method: "end"
                 },
                 no: {
@@ -104,7 +104,7 @@ var treeParams = {
             }
         },
         8: {
-            type: "answer",
+            type: "biganswer",
             text: "Фонд развития Дальнего Востока и Байкальского региона",
             buttons: null
         },
@@ -127,11 +127,6 @@ var treeParams = {
             type: "answer",
             text: "Фонд поддержки малого и среднего бизнеса",
             buttons: null
-        },
-        13: {
-            type: "answer",
-            text: "Фонд развития интернет-инициатив<br/><br/>Российский фонд прямых инвестиций",
-            buttons: null
         }
 
     }
@@ -148,33 +143,37 @@ jQuery.fn.questionsTree = function(steps) {
 
         $buttons.length && $buttons
             .bind("click.answer", function () {
-               var $this = $(this),
+                var $this = $(this),
                    data = $this.data();
 
-               $buttons
-                   .parent(".card-button_out")
-                   .removeClass("selected");
+                if (data.method === "reset") {
 
-               $this
-                   .parent(".card-button_out")
-                   .addClass("selected");
+                    clearTree();
 
-               $this
-                   .parents(".card")
-                   .nextAll()
-                   .remove();
+                } else {
+                    $buttons
+                        .parent(".card-button_out")
+                        .removeClass("selected");
 
-               startCard(data.id);
+                    $this
+                        .parent(".card-button_out")
+                        .addClass("selected");
+
+                    $this
+                        .parents(".card")
+                        .nextAll()
+                        .remove();
+
+                    startCard(data.id);
+                }
+
+
 
             });
 
         $card.appendTo($self);
 
-        $(window).scrollTo($card[0], 1000);
-
-    }
-
-    function endCard() {
+        $(window).scrollTo($card[0], 400);
 
     }
 
